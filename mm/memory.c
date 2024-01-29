@@ -341,6 +341,12 @@ void free_pgd_range(struct mmu_gather *tlb,
 		if (!ceiling)
 			return;
 	}
+#ifdef THIS_IS_NO_SET
+	char* some_dummy_array[30];
+	kfree(some_dummy_array);
+#endif
+	char* another_dummy_array[20];
+	kfree(another_dummy_array);
 	if (end - 1 > ceiling - 1)
 		end -= PMD_SIZE;
 	if (addr > end - 1)
